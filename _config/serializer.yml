@@ -1,0 +1,22 @@
+---
+Name: apiroutes
+After: framework/routes#coreroutes
+---
+
+Director:
+  rules:
+    'api/$URLSegment/$ID': 'RootApiController'
+
+ApiController:
+  allowed_verbs:
+    - GET
+    - PUT
+    - POST
+    - DELETE
+
+SiteTree:
+  transformer: SiteTreeTransformer
+
+DataObject:
+  transformer: DataObjectTransformer
+  serializer: League\Fractal\Serializer\DataArraySerializer
